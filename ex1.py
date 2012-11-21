@@ -4,12 +4,13 @@ import math
 def Run():
   market_date = data.GetDates()
   # artificial price
-  #spy_aprc = data.GetSPY()
+  spy_aprc = data.GetSPY()
   # can use other stock, e.g.
-  ko_aprc = data.GetKO()
+  #ko_aprc = data.GetKO()
   # aprc = data.GetPEP()
   # aprc = data.GetXLP()
-  RunStrategy(market_date, ko_aprc)
+  #RunStrategy(market_date, ko_aprc)
+  RunStrategy(market_date, spy_aprc)
 
 
 def GetReturnSeries(nav_list):
