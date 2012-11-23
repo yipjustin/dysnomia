@@ -32,7 +32,9 @@ def Analyze(nav_list):
   return_list = GetReturnSeries(nav_list)
 
   # Calculate return average
-  average_return = Average(return_list)
+  # nav_list[0] refers to the first element of nav_list.
+  # nav_list[-1] refers to the *last* element of nav_list.
+  average_return = math.pow(nav_list[-1] / nav_list[0], 1 / (len(nav_list)-1)) - 1
  
   # Calculate return SD
   variance_list = [(r - average_return)**2 for r in return_list]
@@ -40,7 +42,7 @@ def Analyze(nav_list):
   
   # Calculate sharpe ratio
   trading_days = 252
-  annual_return = math.pow(1 + average_return, trading_days) - 1
+  annual_return = math.pow(nav_list[-1] / nav_list[0], 250.0 / (len(nav_list)-1)) - 1
   annual_volatility = return_sd * math.sqrt(trading_days)
   
   # Sharpe
